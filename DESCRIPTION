@@ -1,4 +1,4 @@
-Package: transctipTools
+Package: transcripTools
 Title: Collection of functions for analysing gene expression data 
 Version: 0.0.0.9000
 Authors@R: person("Dominic", "Pearce", email = "dominic.pearce@ed.ac.uk", role = c("aut", "cre"))
