@@ -1,7 +1,7 @@
 survivALL
 ================
 
-[![Build Status](https://travis-ci.org/pearcedom/transcripTools.svg?branch=master)](https://travis-ci.org/pearcedom/transcripTools)
+[![Build Status](https://travis-ci.org/abc-igmm/transcripTools.svg?branch=master)](https://travis-ci.org/abc-igmm/transcripTools)
 
 **About & Installation**
 
