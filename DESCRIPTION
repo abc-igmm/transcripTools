@@ -5,7 +5,7 @@ Authors@R: person("Dominic", "Pearce", email = "dominic.pearce@ed.ac.uk", role =
 Description: Allows id conversion and replacement, most variable gene calling, 
     expressionSet building and both MDS and heatmap data formatting for plotting
     via ggplot2.
-Depends: R (>= 3.4.1)
+Depends: R (>= 3.4.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
