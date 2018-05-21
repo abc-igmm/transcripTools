@@ -18,7 +18,6 @@
 #' @param ids A vector of genomic identifiers
 #' @param format_in Format/type of genomic identifiers of the ids input
 #' @param format_out Format/type of genomic identifiers to be returned
-#' @param format_out Format/type of genomic identifiers to be returned
 #' @return A 2-column dataframe of original and converted ids
 #' @examples
 #' id_vec <- c("ESR1", "ERBB2", "AURKA")

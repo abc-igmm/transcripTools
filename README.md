@@ -11,7 +11,8 @@ transcripTools can be installed directly from github via `devtools::install_gith
 
 **Direction**
 
-- [ ] Actually write decent examples so others can use the functions with confidence
+- [x] Actually write decent examples so others can use the functions with confidence
+- [ ] heatmapArrange includes hierarchical clustering code that could exist as it's own standalone function
 - [ ] Write tests, code coverage is currently at 0%...
 
 

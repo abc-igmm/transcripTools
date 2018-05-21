@@ -37,36 +37,24 @@ idReplace <- function(input,
                       format_in = "ensembl_gene_id",
                       format_out = "hgnc_symbol"){
 
-  #Function to retrieve corresponding new ids for original ids
-  id2GeneSymbolBM <- function(ids,
-                              filters = format_in,
-                              attributes = format_out){
-    library(biomaRt)
-    ensembl <- useMart("ENSEMBL_MART_ENSEMBL", dataset = "hsapiens_gene_ensembl", host = "www.ensembl.org")
-    getBM(attributes = c(filters, attributes),
-          filters = filters,
-          values = ids,
-          mart = ensembl)
-  }
-
   #Merge and aggregate (mean) multiple IDs per format_out
   input <- as.data.frame(input)
   input[[format_in]] <- row.names(input)
 
-  input.mrg <- merge(x = id2GeneSymbolBM(row.names(input),
-                                      filters = format_in,
-                                      attributes = format_out),
-                  y = input,
-                  by = format_in)
+  input.mrg <- merge(x = transcripTools::id2GeneSymbolBM(row.names(input),
+                                                         format_in,
+                                                         format_out),
+                     y = input,
+                     by = format_in)
 
   input.mrg[input.mrg==""] <- NA
-  input.mrg <- na.omit(input.mrg)
+  input.mrg <- stats::na.omit(input.mrg)
   ## added data.table conversion to speed up aggregation step [defunct]
   #input.mrg <- data.table(input.mrg)
 
-  input.agg <- aggregate(input.mrg,
-                        list(input.mrg[[format_out]]),
-                        FUN = mean)
+  input.agg <- stats::aggregate(input.mrg,
+                         list(input.mrg[[format_out]]),
+                         FUN = mean)
 
   #input.agg <- input.mrg[, Group.1 := mean(x), by = get(format_out)]
 

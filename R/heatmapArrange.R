@@ -10,7 +10,6 @@
 #' @param scale A logical value for whether scaling is performed 
 #' @param by_row A logical value for whether scaling is performed by row (TRUE)
 #' of column (FALSE)
-#' @param by_row determines whether scaling is performed on rows or columns
 #' @return A dataframe compatible with ggplot2
 #' @examples
 #synthesise example data matrix for two treatment groups X and Y
@@ -35,14 +34,13 @@
 #' 
 #' @export
 heatmapArrange <- function(data_in, 
-                           class_by = NULL, 
                            cluster_row = FALSE, 
                            cluster_column = FALSE, 
                            scale = TRUE, 
                            by_row = TRUE){
     #clustering : if all samples have the same value (i.e. 0), clustering fails 
     #so remove those which do
-    homogeneous_rows <- sapply(1:nrow(data_in), function(x) sd(data_in[x,]))
+    homogeneous_rows <- sapply(1:nrow(data_in), function(x) stats::sd(data_in[x,]))
     data_in <- data_in[homogeneous_rows != 0,]
 
     #SCALING
@@ -67,7 +65,7 @@ heatmapArrange <- function(data_in,
     #CLUSTERING
     #cluster by row
     if(cluster_row == TRUE){
-        r_clst <- hclust(as.dist(1-cor(t(data_in), method = "pearson")), 
+        r_clst <- stats::hclust(stats::as.dist(1-stats::cor(t(data_in), method = "pearson")), 
                          method = "complete", 
                          members = NULL)
         dfr_mlt$row_var <- factor(dfr_mlt$row_var, 
@@ -75,7 +73,7 @@ heatmapArrange <- function(data_in,
     }
     #cluster by column
     if(cluster_column == TRUE){
-        c_clst <- hclust(as.dist(1-cor(data_in, method = "pearson")), 
+        c_clst <- stats::hclust(stats::as.dist(1-stats::cor(data_in, method = "pearson")), 
                          method = "complete", 
                          members = NULL)
         dfr_mlt$variable <- factor(dfr_mlt$variable, 

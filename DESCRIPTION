@@ -6,7 +6,7 @@ Description: Allows id conversion and replacement, most variable gene calling,
     expressionSet building and both MDS and heatmap data formatting for plotting
     via ggplot2.
 Depends: R (>= 3.4.1)
-License: MIT + file
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 biocViews:
@@ -14,7 +14,8 @@ Imports:
     reshape2,
     Biobase,
     biomaRt,
-    ggplot2
+    ggplot2,
+    breastCancerNKI
 Suggests:
     testthat
 RoxygenNote: 6.0.1

@@ -15,6 +15,6 @@
 #'
 #' @export
 mostVar <- function(data, n, i_want_most_var = TRUE) {
-  data.var <- apply(data, 1, var)
+  data.var <- apply(data, 1, stats::var)
   data[order(data.var, decreasing = i_want_most_var)[1:n],] 
 }

@@ -28,17 +28,17 @@
 mdsArrange <- function(d, isAlreadyScaled = FALSE){
     #calculate PCs 1&2
     if(isAlreadyScaled == FALSE){
-        dst <- dist(t(scale(d)))
+        dst <- stats::dist(t(scale(d)))
         dN <- dimnames(d)[[2]]
         dst.m <- as.matrix(dst)
         dimnames(dst.m) <- list(dN, dN)
-        dst.cmd <- cmdscale(dst.m, k=2)
+        dst.cmd <- stats::cmdscale(dst.m, k=2)
     } else {
-        dst <- dist(t(d))
+        dst <- stats::dist(t(d))
         dN <- dimnames(d)[[2]]
         dst.m <- as.matrix(dst)
         dimnames(dst.m) <- list(dN, dN)
-        dst.cmd <- cmdscale(dst.m, k=2)
+        dst.cmd <- stats::cmdscale(dst.m, k=2)
     }
     #arrange as a single dataframe
     data.frame(ids = row.names(dst.cmd), x = dst.cmd[,1], y = dst.cmd[,2])

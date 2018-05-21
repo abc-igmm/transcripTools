@@ -11,6 +11,8 @@ idReplace(input, format_in = "ensembl_gene_id", format_out = "hgnc_symbol")
 \item{input}{A matrix/dataframe. Samples as columns, genes as rows}
 
 \item{format_in}{Format/type of genomic identifiers of the input object}
+
+\item{format_out}{Format/type of genomic identifiers to be returned}
 }
 \value{
 A id-converted matrix otherwise identical to input
@@ -38,12 +40,11 @@ Common filters/attributes are "ensembl_gene_id", "hgnc_symbol",
 Requires biomaRt and internet access.
 }
 \examples{
-
 mtx <- matrix(rnorm(mean = 7, n = 9), ncol = 3) 
 row.names(mtx) <- c("ESR1", "ERBB2", "AURKA")
 
 idReplace(mtx,
           format_in = "hgnc_symbol",
-          format_in = "entrezgene")
+          format_out = "entrezgene")
 
 }
