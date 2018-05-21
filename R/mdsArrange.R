@@ -8,15 +8,21 @@
 #' @return A dataframe compatible with ggplot2
 #' 
 #' @examples
-#' #synthesise example data matrix
-#' mtx <- matrix(rnorm(mean = 7, n = 90), ncol = 10) 
-#' row.names(mtx) <- LETTERS[1:9]
-#' colnames(mtx) <- c(paste0("X", 1:5), paste0("Y", 6:10))
-#'
-#' hm_dfr <- mdsArrange(d = mtx, isAlreadyScaled = FALSE)
-#'
-#' #library(ggplot2)
-#' #ggplot(hm_dfr, aes(x = x, y  = y, fill = )) 
+#' #Using the NKI dataset
+#' library(breastCancerNKI)
+#' library(Biobase)
+#' data(nki)
+#' mtx <- exprs(nki)
+#' 
+#' #Calculate PCs 1 & 2
+#' mds_dfr <- mdsArrange(d = mtx, isAlreadyScaled = TRUE)
+#' #Merge with phenotypic data for plotting
+#' mds_mrg <- merge(mds_dfr, pData(nki), by = 0)
+#' 
+#' #Plot MDS and colour by estrogen receptor positivity
+#' library(ggplot2)
+#' ggplot(mds_mrg, aes(x = x, y  = y, colour = as.factor(er))) + 
+#'     geom_point()
 #' 
 #' @export 
 mdsArrange <- function(d, isAlreadyScaled = FALSE){

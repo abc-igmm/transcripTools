@@ -10,7 +10,6 @@
 #' #synthesise example data matrix
 #' mtx <- matrix(rnorm(mean = 7, n = 90), ncol = 10) 
 #' row.names(mtx) <- LETTERS[1:9]
-#' colnames(mtx) <- c(paste0("X", 1:5), paste0("Y", 6:10))
 #'
 #' mv_3 <- mostVar(data = mtx, n = 3)
 #'

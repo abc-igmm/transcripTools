@@ -25,13 +25,12 @@
 #' @param format_in Format/type of genomic identifiers of the input object
 #' @return A id-converted matrix otherwise identical to input
 #' @examples
-#' 
 #' mtx <- matrix(rnorm(mean = 7, n = 9), ncol = 3) 
 #' row.names(mtx) <- c("ESR1", "ERBB2", "AURKA")
 #' 
 #' idReplace(mtx,
 #'           format_in = "hgnc_symbol",
-#'           format_in = "entrezgene")
+#'           format_out = "entrezgene")
 #' 
 #' @export
 idReplace <- function(input,

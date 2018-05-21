@@ -22,11 +22,12 @@
 #' @return A 2-column dataframe of original and converted ids
 #' @examples
 #' id_vec <- c("ESR1", "ERBB2", "AURKA")
-#'
+#' 
 #' id2GeneSymbolBM(ids = id_vec,
 #'                 format_in = "hgnc_symbol",
-#'                 format_out = "entrezgene",
+#'                 format_out = "entrezgene"
 #'                 )
+#' 
 #' @export
 id2GeneSymbolBM <- function(ids,
                             format_in = "ensembl_gene_id",
