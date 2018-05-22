@@ -1,4 +1,4 @@
-survivALL
+transcripTools
 ================
 
 [![Build Status](https://travis-ci.org/abc-igmm/transcripTools.svg?branch=master)](https://travis-ci.org/abc-igmm/transcripTools)
