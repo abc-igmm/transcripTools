@@ -7,7 +7,7 @@ transcripTools
 
 A collection of functions that I've found myself using time and time again for transcriptomic analysis.
 
-transcripTools can be installed directly from github via `devtools::install_github("abc-igmm/survivALL")`. The devtools package itself can be installed using `install.packages("devtools")` within an R terminal.
+transcripTools can be installed directly from github via `devtools::install_github("abc-igmm/transcripTools")`. The devtools package itself can be installed using `install.packages("devtools")` within an R terminal.
 
 **Direction**
 
