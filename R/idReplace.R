@@ -20,7 +20,7 @@
 #' "entrezgene", "illumina_humanht_12_v4" and "affy_hg_u133a".
 #' 
 #' Requires biomaRt and internet access.
-#' @inheritParams id2GeneSymbolBM
+#' @inheritParams idConvert
 #' @param input A matrix/dataframe. Samples as columns, genes as rows
 #' @param format_in Format/type of genomic identifiers of the input object
 #' @return A id-converted matrix otherwise identical to input
@@ -41,7 +41,7 @@ idReplace <- function(input,
   input <- as.data.frame(input)
   input[[format_in]] <- row.names(input)
 
-  input.mrg <- merge(x = transcripTools::id2GeneSymbolBM(row.names(input),
+  input.mrg <- merge(x = transcripTools::idConvert(row.names(input),
                                                          format_in,
                                                          format_out),
                      y = input,

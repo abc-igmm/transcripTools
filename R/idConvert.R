@@ -1,4 +1,4 @@
-#' id2GeneSymbolBM
+#' idConvert
 #'
 #' Provided with a character vector of genomic identifiers; and a biomaRt
 #' hsapiens_gene_ensembl specific set of filters and attributes (i.e. the
@@ -22,13 +22,13 @@
 #' @examples
 #' id_vec <- c("ESR1", "ERBB2", "AURKA")
 #' 
-#' id2GeneSymbolBM(ids = id_vec,
+#' idConvert(ids = id_vec,
 #'                 format_in = "hgnc_symbol",
 #'                 format_out = "entrezgene"
 #'                 )
 #' 
 #' @export
-id2GeneSymbolBM <- function(ids,
+idConvert <- function(ids,
                             format_in = "ensembl_gene_id",
                             format_out = "hgnc_symbol"){
     #define mart to query
