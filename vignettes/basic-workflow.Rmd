@@ -4,9 +4,9 @@ author: "Dominic Pearce, The Institute of Genetics and Molecular Medicine, The U
 date: "`r Sys.Date()`"
 header-includes:
     - \usepackage{setspace}\doublespacing
-output: github_document 
+output: rmarkdown::html_vignette 
 vignette: >
-  %\VignetteIndexEntry{Basic Usage}
+  %\VignetteIndexEntry{Basic transcripTools workflow}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
