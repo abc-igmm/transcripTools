@@ -9,6 +9,8 @@ A collection of functions that I've found myself using time and time again for t
 
 transcripTools can be installed directly from github via `devtools::install_github("abc-igmm/transcripTools")`. The devtools package itself can be installed using `install.packages("devtools")` within an R terminal.
 
+Everything is documented and there is also a basic vignette that you can view [here](https://github.com/abc-igmm/transcripTools/blob/master/vignettes/basic-workflow.md)
+
 If you need help, even if it's simply *"I have no idea where to even start"* then just email me at dominic.pearce@ed.ac.uk
 
 **Direction**
