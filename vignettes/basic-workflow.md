@@ -9,7 +9,7 @@ Dominic Pearce, The Institute of Genetics and Molecular Medicine, The University
 
 1.  Simple feature selection by variance
 2.  Structuring data for plotting by both MDS and as a heatmap
-3.  Feature id conversion for further analysis/**INSIGHT**
+3.  Feature id conversion for further analysis
 
 #### But first, what is the nki data? And what does it look like? Originally used as a [validation dataset for the 70-gene MammaPrint signature](https://www.ncbi.nlm.nih.gov/pubmed/12490681) this dataset has grown slightly in size but still is effectively the same collection of invasive breast cancer samples of no specific subtype. More information can be found in the [bioconductor package's web page](http://bioconductor.org/packages/release/data/experiment/html/breastCancerNKI.html) but, because there are issues with installing this on windows I've simply included the data here as part of `transcripTools`.
 
@@ -40,6 +40,8 @@ dim(xpr_500)
 ```
 
 \[1\] 500 337
+
+ 
 
 2 Structuring data for plotting by both MDS and as a heatmap
 ============================================================
@@ -117,11 +119,7 @@ p_hmap <- ggplot(hm_mrg, aes(x = col_var, y = row_var, fill = value)) +
     scale_fill_gradient2(high = "#d73027", mid = "black", low = "#1a9850") + 
     labs(title = "NKI heatmap") +
     theme_void()
-
-p_hmap
 ```
-
-<img src="basic-workflow_files/figure-markdown_github/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
 
 #### Heatmaps produced this can be combined with a colour bar using the [cowplot packages's](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) `plot_grid()`.
 
@@ -139,8 +137,10 @@ plot_grid(p_hmap, p_bar, ncol = 1, rel_heights = c(10, 1), align = 'v')
 
 <img src="basic-workflow_files/figure-markdown_github/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
 
-3 Feature id conversion for further analysis/**INSIGHT**
-========================================================
+ 
+
+3 Feature id conversion for further analysis
+============================================
 
 #### Finally, our features are currently in the refseq id format and perhaps we want HGNC official gene symbols instead. We can use two functions to achieve this, `idReplace()` that will convert and replace the ids in the expression matrix, or `idConvert()` that will simply convert a vector of ids. Here we'll use `idConvert()`.
 
