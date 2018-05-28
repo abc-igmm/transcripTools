@@ -13,12 +13,15 @@ Everything is documented and there is also a basic vignette that you can view [h
 
 If you need help, even if it's simply *"I have no idea where to even start"* then just email me at dominic.pearce@ed.ac.uk
 
+**Contributing**
+
+If you'd like to add your own code this [guide](http://www.datasurg.net/2015/07/13/rstudio-and-github/) should help those of you using Rstudio. Be sure to skip the steps for *"Create New project AND git"* and go straight to *"Clone an existing GitHub project to new RStudio project"*. 
+
+Alternatively, for those working directly from the commandline, simply `git clone https://github.com/abc-igmm/transcripTools` and then `git add`, `git commit` and `git push` as normal or watch this [video here](https://www.youtube.com/watch?v=Y9XZQO1n_7c).
+
 **Direction**
 
 - [x] Actually write decent examples so others can use the functions with confidence
 - [ ] heatmapArrange includes hierarchical clustering code that could exist as it's own standalone function
 - [ ] Write tests, code coverage is currently at 0%...
 
-**How to use GIT and Github**
-
-See this [video](https://www.youtube.com/watch?v=Y9XZQO1n_7c) here
