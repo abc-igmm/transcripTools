@@ -152,12 +152,12 @@ plot_grid(p_hmap, p_bar, ncol = 1, rel_heights = c(10, 1), align = 'v')
 3. Feature id conversion for further analysis/**INSIGHT**
 ---------------------------------------------------------
 
-#### Finally, our features are currently in the refseq id format and perhaps we want HGNC official gene symbols instead. We can use two functions to achieve this, `idReplace()` that will convert and replace the ids in the expression matrix, or `id2GeneSymbolBM()` that will simply convert a vector of ids. Here we'll use `id2GeneSymbolBM()`.
+#### Finally, our features are currently in the refseq id format and perhaps we want HGNC official gene symbols instead. We can use two functions to achieve this, `idReplace()` that will convert and replace the ids in the expression matrix, or `idConvert()` that will simply convert a vector of ids. Here we'll use `idConvert()`.
 
 ``` r
 mv_10 <- row.names(xpr_500)[1:10]
 
-id2GeneSymbolBM(mv_10, format_in = "refseq_mrna", format_out = "hgnc_symbol")
+idConvert(mv_10, format_in = "refseq_mrna", format_out = "hgnc_symbol")
 ```
 
 | refseq\_mrna | hgnc\_symbol |
