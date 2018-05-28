@@ -30,7 +30,7 @@ library(Biobase, quietly = TRUE)
 data(nki)
 ```
 
-#### We have three slots of relevant information, the `assayData`, where the expression matrix is found, `phenoData` where the phenotypic data is found, and `featureData` where the feature data is found. We can see we have 337 samples and 24481 features to investigate. For the sake of this vignette we'll separate the nki expressionSet into individual pieces, though this is kind of against the fundamental prinicples of why an expressionSet is useful (which you can read up on [here](http://www.bioconductor.org/packages/3.7/bioc/vignettes/Biobase/inst/doc/ExpressionSetIntroduction.pdf)).
+#### We have three slots of relevant information, the `assayData`, where the expression matrix is found, `phenoData` where the phenotypic data is found, and `featureData` where the feature data is found. We can see we have 337 samples and 24481 features to investigate. For the sake of this vignette we'll separate the nki expressionSet into individual pieces, though this is kind of against the fundamental principles of why an expressionSet is useful (which you can read up on [here](http://www.bioconductor.org/packages/3.7/bioc/vignettes/Biobase/inst/doc/ExpressionSetIntroduction.pdf)).
 
 ```{r}
 xpr <- exprs(nki) 
@@ -40,7 +40,7 @@ feats <- fData(nki)
 
 # 1 Feature selection by variance
 
-#### On the assumption that the genes that vary the most across our samples are the most biologically informative, we can choose the `n` most variable reduce the size/complexity of our subsequent investigation. To achieve this we use the `mostVar()` function, which will take our expression matrix (`xpr`) and the number of features we want to extract.
+#### On the assumption that the genes that vary the most across our samples are the most biologically informative, we can choose the `n` most variable reduce the size/complexity of our subsequent investigation. To achieve this we use the `mostVar()` function, which will take our expression matrix (`xpr`) and the number of features we want to extract, and return us a subsetted matrix containing the `n` features we specified.
 
 ```{r}
 xpr_500 <- mostVar(xpr, 500)
@@ -51,7 +51,7 @@ dim(xpr_500)
 
 # 2 Structuring data for plotting by both MDS and as a heatmap
 
-#### In both instances we will run the function of choice and then merge the results with our phenotypic data. This will arrange the data for very simple but power plotting using ggplot2.
+#### In both instances we will run the function of choice and then merge the results with our phenotypic data. This will arrange the data for very simple but powerful plotting using ggplot2.
 
 ### 2.1 MDS
 
@@ -73,7 +73,7 @@ mds_mrg <- merge(mds_arg, pheno, by.x = "ids", by.y = "samplename")
 knitr::kable(head(mds_mrg))
 ```
 
-#### With our data ready to plot we simply call `ggplot` and specify our colours etc. using `mds_mrg`'s column headings. Unsurprisingly, when we colour by `er` (estrogen receptor status) we see that the 500 most variable genes capture and separate our samples by this factor.
+#### With our data ready to plot we simply call `ggplot` and specify our colours etc. using `mds_mrg`'s column headings. Unsurprisingly, when we colour by `er` (oestrogen receptor status) we see that the 500 most variable genes capture and separate our samples by this factor.
 
 ```{r}
 library(ggplot2, quietly = TRUE)
@@ -86,7 +86,7 @@ ggplot(mds_mrg, aes(x = x, y = y, colour = as.factor(er))) +
 
 ### 2.2 Heatmaps
 
-#### The process is pretty much the same as for `mdsArrange`, though `heatmapArrange` has a couple of extra arguments that allow for hierarchical clusterting and scaling. Again, here's a little info on [heatmaps](https://www.youtube.com/watch?v=oMtDyOn2TCc) and [hierarchical clustering](https://www.youtube.com/watch?v=7xHsRkOdVwo)
+#### This process is pretty much the same as for `mdsArrange`, though `heatmapArrange` has a couple of extra arguments that allow for hierarchical clustering and scaling. Again, here's a little info on [heatmaps](https://www.youtube.com/watch?v=oMtDyOn2TCc) and [hierarchical clustering](https://www.youtube.com/watch?v=7xHsRkOdVwo)
 
 ```{r}
 hm_arg <- heatmapArrange(xpr_500, 
@@ -118,7 +118,7 @@ p_hmap <- ggplot(hm_mrg, aes(x = col_var, y = row_var, fill = value)) +
 	theme_void()
 ```
 
-#### Heatmaps produced this can be combined with a colour bar using the [cowplot packages's](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) `plot_grid()`.
+#### Heatmaps produced this can be combined with a colour bar using the [cowplot package's](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) `plot_grid()`.
 
 ```{r}
 p_bar <- ggplot(hm_mrg, aes(x = col_var, y = "ER", fill = as.factor(er))) +
@@ -136,7 +136,7 @@ plot_grid(p_hmap, p_bar, ncol = 1, rel_heights = c(15, 1), align = 'v')
 
 # 3 Feature id conversion for further analysis
 
-#### Finally, our features are currently in the refseq id format and perhaps we want HGNC official gene symbols instead. We can use two functions to achieve this, `idReplace()` that will convert and replace the ids in the expression matrix, or `idConvert()` that will simply convert a vector of ids. Here we'll use `idConvert()`.
+#### Finally, our features are currently in the refseq id format and perhaps we want HGNC official gene symbols instead. We can use two functions to achieve this, `idReplace()` that will convert and replace the ids in the expression matrix, or `idConvert()` that will simply convert a vector of ids. Here we'll use `idConvert()`, the the arguments and usage are highly similar between the two functions.
 
 ```{r, eval = FALSE}
 mv_10 <- row.names(xpr_500)[1:10]
