@@ -1,4 +1,4 @@
-Function examples
+Basic transcripTools workflow
 ================
 Dominic Pearce, The Institute of Genetics and Molecular Medicine, The University of Edinburgh
 2018-05-28
@@ -132,7 +132,7 @@ p_bar <- ggplot(hm_mrg, aes(x = col_var, y = "ER", fill = as.factor(er))) +
 # calling it with resetting the default theme
 library(cowplot); theme_set(theme_grey()) 
 
-plot_grid(p_hmap, p_bar, ncol = 1, rel_heights = c(10, 1), align = 'v')
+plot_grid(p_hmap, p_bar, ncol = 1, rel_heights = c(15, 1), align = 'v')
 ```
 
 <img src="basic-workflow_files/figure-markdown_github/unnamed-chunk-12-1.png" style="display: block; margin: auto;" />

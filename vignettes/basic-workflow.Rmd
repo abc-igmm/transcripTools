@@ -1,5 +1,5 @@
 ---
-title: "Function examples"
+title: "Basic transcripTools workflow"
 author: "Dominic Pearce, The Institute of Genetics and Molecular Medicine, The University of Edinburgh"
 date: "`r Sys.Date()`"
 header-includes:
@@ -129,7 +129,7 @@ p_bar <- ggplot(hm_mrg, aes(x = col_var, y = "ER", fill = as.factor(er))) +
 # calling it with resetting the default theme
 library(cowplot); theme_set(theme_grey()) 
 
-plot_grid(p_hmap, p_bar, ncol = 1, rel_heights = c(10, 1), align = 'v')
+plot_grid(p_hmap, p_bar, ncol = 1, rel_heights = c(15, 1), align = 'v')
 ```
 
 &nbsp;
