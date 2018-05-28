@@ -19,6 +19,8 @@ If you'd like to add your own code this [guide](http://www.datasurg.net/2015/07/
 
 Alternatively, for those working directly from the commandline, simply `git clone https://github.com/abc-igmm/transcripTools` and then `git add`, `git commit` and `git push` as normal or watch this [video here](https://www.youtube.com/watch?v=Y9XZQO1n_7c).
 
+Following the advice in Hadley Wickham's [R Packages](http://r-pkgs.had.co.nz) book should let you know how to write and document your own additions.
+
 **Direction**
 
 - [x] Actually write decent examples so others can use the functions with confidence
